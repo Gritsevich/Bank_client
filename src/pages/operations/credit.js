@@ -26,6 +26,10 @@ const Credit = () => {
       setShouldUpdate(false)
     }, [id])
 
+    const check = () => {
+      return credit.month_amount > credit.amount 
+    }
+
     return (
       <Container
         className="d-flex justify-content-center align-items-center"
@@ -46,7 +50,7 @@ const Credit = () => {
             Ежемесячный платёж {credit.month_amount}
           </Row>
           <Button variant={"outline-success"} className="mt-3" onClick={() => {setChangeAccountNameVisible(true)}}>Изменить название счёта</Button>
-          <Button variant={"outline-success"} className="mt-3" onClick={() => {setMonthPaymentVisible(true)}}>Внести платёж</Button>
+          <Button variant={"outline-success"} className="mt-3" disabled={check()} onClick={() => {setMonthPaymentVisible(true)}}>Внести платёж</Button>
         </Card>
         :
         <Card style={{width: 500}} className="p-5">
