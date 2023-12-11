@@ -27,7 +27,9 @@ const Credit = () => {
     }, [id])
 
     const check = () => {
-      return credit.month_amount > credit.amount 
+      if(credit.amount - credit.month_amount > 0 )
+        return false
+      else return true
     }
 
     return (
